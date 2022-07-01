@@ -1,0 +1,106 @@
+@font-face {
+    font-family:chines;
+    src: url(Zenzai\ Itacha.ttf);
+}
+.main_is{
+    height: 75%;
+    width: 98%;
+    position: relative;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5%;
+    background-image: url('./img7.png');
+    background-repeat: no-repeat;
+    background-size: 100% auto;
+    border-radius: 10px;
+}
+.main_is>.sub_main{
+    height: 100%;
+    width: 50%;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    right: 0;
+    z-index: 1;
+    /*background-color: rgba(255, 255, 255, 0.281);
+    backdrop-filter: blur(3px);
+    clip-path: polygon(20% 0,100% 0,100% 100%,0 100%);*/
+    border-bottom-right-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-top-left-radius: 10px;
+    color: white;
+    background-image: linear-gradient(to left,rgba(0, 0, 0, 0.966) 65%,rgba(0, 0, 0, 0.534),rgba(255, 255, 255, 0));
+}
+.main_is>.sub_main>.ban_detail{
+    width:70%;
+    height: 5%;
+    display: flex;
+    justify-content:left;
+    align-items: center;
+    font-size: 1.1rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+.main_is>.sub_main>.ban_detail>#year, .main_is>.sub_main>.ban_detail>#season, .main_is>.sub_main>.ban_detail>#ratting{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    margin-left: 1%;
+    margin-right: 1%;
+}
+.main_is>.sub_main>.ban_detail>#year, .main_is>.sub_main>.ban_detail>#ratting{
+    color: yellow;
+}
+.main_is>.sub_main>.ban_detail>#season{
+    width:20%;
+    border-radius: 5px;
+    /*background-color: rgba(71, 70, 70, 0.726);*/
+    background-image: linear-gradient(to right,rgba(241, 202, 24, 0.918),rgba(233, 40, 40, 0.699));
+    color: black;
+}
+.main_is>.sub_main>.ban_detail>#ratting{
+    text-align: center;
+    width: 8%;
+    border: 1px solid rgb(150, 150, 150);
+    border-radius: 4px;
+}
+.main_is>.sub_main>.heading{
+    width: 50%;
+    text-align: center;
+    font-size: 4rem;
+    font-family: chines;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    text-shadow: 3px 3px 0px rgb(93, 17, 112);
+}
+.main_is>.sub_main>p{
+    height: 35%;
+    width: 70%;
+    text-align: justify;
+    margin-top: 1%;
+    font-family: chines;
+    letter-spacing: 1px;
+    line-height: 1.2;
+    font-size: 2rem;
+    font-weight: bold;
+    color: white;
+    /*color: rgb(0, 0, 0);*/
+    
+}
+.main_is>.sub_main>button{
+    margin-top: 1%;
+    background-color: yellow;
+    border: none;
+    background-image: linear-gradient(to right,rgba(241, 202, 24, 0.918),rgba(233, 40, 40, 0.699));
+    color: rgb(0, 0, 0)!important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    height: 10%;
+    width: 20%;
+}

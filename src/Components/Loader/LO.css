@@ -1,0 +1,13 @@
+.page-loader{
+    width: 100%;
+    height: 100%;
+    /* border: 1px solid white; */
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.page-loader>img{
+    width: 35%;
+    height: auto;
+    /* border: 1px solid white; */
+}

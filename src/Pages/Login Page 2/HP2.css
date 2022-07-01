@@ -1,0 +1,209 @@
+ @font-face {
+    font-family:chines;
+    src: url(Zenzai\ Itacha.ttf);
+}
+.lpopup{
+    position: fixed;
+    z-index: 5;
+    background-color: rgba(17, 17, 17, 0.247);
+    overflow: hidden;
+
+/* ........change.......... */
+    /* display:flex; */
+
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.homeheader{
+    width: 100%;
+    height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    /* border-radius: 20px; */
+    background-image: url('./images/intro_banner.png');
+    background-repeat: no-repeat;
+    background-position: right;
+    background-size: 70% 100%;
+    font-family: chines;
+}
+.HeaderSection{
+    width:100%;
+    height:90%;
+    display: flex;
+}
+.homeheader>.Leftsection{
+    width:45%;
+    height: 100%;
+    text-align: center;
+    padding-top: 1.6%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    /* border-bottom-left-radius: 20px;
+    border-top-left-radius: 20px; 
+    border: 1px solid white;*/
+    background-image: linear-gradient(to right,rgba(0, 0, 0, 0.966) 73%,
+                                                rgba(0, 0, 0, 0.534),
+                                                rgba(255, 255, 255, 0));
+}
+.homeheader>.Leftsection>h1{
+    font-size: 3rem;
+    color: rgba(255, 208, 0, 0.795);
+    width: 95%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.homeheader>.Leftsection>p{
+    text-align: justify;
+    font-size: 1.6rem;
+    width: 85%;
+    display: block;
+    margin-top: 1%;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+.homeheader>.Leftsection>.inpsec{
+    width: 95%;
+    height:25%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    background-color: transparent;
+}
+.homeheader>.Leftsection>.inpsec>button{
+    height: 40%;
+    width: 75%;
+    font-size: 2rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 30px;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    /*background-color: #099fad;*/
+    background-color: transparent;
+    background-image: linear-gradient(to right,#099fad 45%,rgba(252, 252, 252, 0.007));
+    color: black;
+    transition: 0.5s;
+    font-family: chines;
+    /* border: 1px solid white; */
+}
+.homeheader>.Leftsection>.inpsec>button:hover{
+    font-size: 2.4rem;
+    border-radius: 0px;
+    color:  white;
+    background-image: linear-gradient(to right, rgba(60, 36, 145, 0.568),rgba(75, 6, 75, 0.178));
+}
+.homeheader>.RightSection{
+    width: 55%;
+    height: 100%;
+    /* border: 1px solid white;  */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    /* font-family: chines; */
+}
+.homeheader>.RightSection>img{
+    width: 100%;
+    height: 100%;
+}
+/* ...........................banner.......................... */
+.ban_1{
+    width: 100%;
+    min-height: 60%;
+    display: flex;
+    margin: auto;
+    /* margin-top: 1%;
+    margin-bottom: 1%; */
+    position: relative;
+    /* border-radius: 20px; */
+    background-image: url("./images/banner_5.png");
+    background-repeat: no-repeat;
+    /* background-size: 55% 100%; */
+    background-size: 55% auto;
+    background-position: left;
+    font-family: chines;
+    /* border: 1px solid white; */
+}
+.ban_1>.upper_layer{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: 1;
+    box-shadow:30px 30px 50px 10px #06070d inset; 
+    /* border-radius: 20px; */
+}
+.ban_1>.para_layer{
+    width: 65%;
+    height: 100%;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: right !important; 
+    justify-content: space-evenly;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    background-color: transparent;
+    background-image: linear-gradient(to left,#06070d 75%,#06070d54,rgba(252, 252, 252, 0.007));
+}
+.ban_1>.para_layer>.para{
+    width: 70%;
+    text-align: justify;
+    font-size: 2rem;
+    line-height: 35px;
+    margin-left: 20%;
+}
+.ban_1>.para_layer>button{
+    width: 30%;
+    height: 15%;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: none;
+    outline: none;
+    background-color: transparent;
+    background-image: linear-gradient(to right,#099fad 45%,rgba(252, 252, 252, 0.007));
+    color: black;
+    border-radius: 40px;
+    margin-left: 20%;
+    transition: 0.5s;
+    font-family: chines;
+}
+.ban_1>.para_layer>button:hover{
+    font-size: 1.8rem;
+    border-radius: 0px;
+    color:  white;
+    background-image: linear-gradient(to right, rgba(60, 36, 145, 0.568),rgba(75, 6, 75, 0.178));
+}
+/* ...........................banner--2.......................... */
+
+#type_2{
+    background-position: right;
+    background-image: url("./images/banner_4.png");
+    /* background-size: 65% 100%; */
+}
+
+#type_2>.para_layer{
+    width: 70%;
+    align-items: left;
+    left: 0 !important;
+    background-image: linear-gradient(to right,#06070d 65%,#06070d8e,rgba(252, 252, 252, 0.007));
+}
+#type_2>.para_layer>.para{
+    margin-left: 2%;
+}

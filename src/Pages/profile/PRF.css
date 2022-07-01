@@ -1,0 +1,162 @@
+/* .............................SUB MAIN 2..................................... */
+.prof_main {
+    width: 75%;
+    height: 150%;
+    /* border: 1px solid black; */
+    top: 0;
+    display: block;
+    margin: auto auto;
+    color: white;
+}
+/* ...................................MARKUP...................................... */
+.profile_markup {
+    width: 100%;
+    height: 35%;
+    /* border: 1px solid black; */
+    position: relative;
+    margin-top: 0.5%;
+    background-color: #7f828528;
+}
+
+.profile_markup>.prof_banner {
+    width: 100%;
+    height: 85%;
+    /* height: auto; */
+    /* border: 1px solid black; */
+    /* background-color: rgb(36, 124, 206); */
+}
+
+.profile_markup>.prof_banner>img {
+    width: 100%;
+    height: 100%;
+    background-color: green;
+}
+
+.profile_markup>.prof_logo {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    position: absolute;
+    /* border: 1px solid black; */
+    z-index: 1;
+    left: 10%;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(255, 255, 255);
+    box-shadow: 0 4px 8px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+
+}
+.profile_markup>.user_name{
+    /*width: 25%;*/
+    width: auto;
+    height: 10%;
+    padding-left: 3%;
+    padding-right: 3%;
+    /*border: 1px solid black;*/
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.6rem;
+    position: absolute;
+    bottom: 2%;
+    right: 7%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.profile_markup>.prof_logo>i {
+    font-size: 10rem;
+    color: rgba(27, 139, 214, 0.726);
+}
+.profile_markup>i{
+    font-size: 2rem;
+    position: absolute;
+    bottom: 3%;
+    right:4%;
+    color: rgb(51, 147, 185);
+    cursor: pointer;
+}
+.profile_markup>.edit-block{
+    width: 20%;
+    height: 25%;
+    position: absolute;
+    bottom: -24%;
+    right: 4%;
+    z-index: 5;
+    /* .....change........ */
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.profile_markup>.edit-block>.inner-eb{
+    width: 100%;
+    height: 48%;
+    /*border: 1px solid black;*/
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    /* background-color: white; */
+    background-color: #7f828528;
+    cursor: pointer;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    /* color: black; */
+}
+
+.prof_main>.info_body {
+    width: 100%;
+    height: 64.5%;
+    /* border: 1px solid black; */
+    position: relative;
+}
+/*..................card section.....................*/
+.info_body>.card-heading{
+    width: 100%;
+    height: 10%;
+    font-family: sans-serif;
+    font-weight: bold;
+    font-size: 1.3rem;
+    display: flex;
+    align-items: center;
+    padding-left: 2%;
+    /* border: 1px solid black; */
+}
+.info_body>.card-heading>span{
+    width: fit-content;
+    background-color: #7f828528;
+    padding: 0.5% 1%;
+    border-radius: 40px;
+}
+.info_body>.card_sc {
+    width: 100%;
+    height: 90%;
+    display: inline-flexbox;
+    overflow-y: scroll;
+    background-color: #7f828528;
+}
+.info_body>.card_sc::-webkit-scrollbar {
+    display: none;
+}
+.info_body>.card_sc>.g_card {
+    cursor: pointer;
+    width: 17%;
+    /*width: auto;*/
+    height: 45%;
+    display: inline-block;
+    margin-left: 2%;
+    margin-top: 2%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.info_body>.card_sc>.g_card>img {
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4%;
+    outline: none;
+}
+

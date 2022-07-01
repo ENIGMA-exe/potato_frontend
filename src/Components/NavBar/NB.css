@@ -1,0 +1,278 @@
+/*.............search box..................*/
+.main_s{
+    position: fixed;
+    z-index: 5;
+    background-color: rgba(17, 17, 17, 0.247);
+    overflow: hidden;
+    display:none;
+    /* display:flex; */
+    align-items: center;
+    justify-content: center;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+.main_s>.search_box{
+    width: 60%;
+    height: 85%;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    position: relative;
+    padding-top: 1%;
+}
+.main_s>.search_box>.close{
+    cursor: pointer;
+    font-family: sans-serif;
+    font-size: 1.2rem;
+    font-weight: 550;
+    width: 10%;
+    height: 6%;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 1.5%;
+    right: 1%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main_s>.search_box>.search_bar{
+    width: 75%;
+    height: 10%;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main_s>.search_box>.search_bar>input{
+    width: 100%;
+    height: 100%;
+    font-family: sans-serif;
+    font-size: 1.3rem;
+    padding-left: 2%;
+    border: none;
+    outline: none;
+        border-radius: 30px;
+}
+.main_s>.search_box>.search_content{
+    width: 96%;
+    height: 75%;
+    border-top: 3px solid rgb(146, 144, 144);
+    display: inline-flexbox;
+    overflow-y: scroll;
+}
+.main_s>.search_box>.search_content::-webkit-scrollbar{
+    display: none;
+}
+.main_s>.search_box>.search_content>img{
+    width: 50%;
+    height: auto;
+    display: block;
+    margin: 5% auto;
+    /* border: 1px solid black; */
+}
+.main_s>.search_box>.search_content>.s_card{
+    cursor: pointer;
+    width: 18%;
+    height: 50%;
+    display:inline-block;
+    margin-left: 4%;
+    margin-top: 4%;
+    position: relative;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.main_s>.search_box>.search_content>.s_card>img{
+    width: 100%;
+    height: 100%;
+    margin-bottom: 4%; 
+    outline: none;
+}
+.main_s>.search_box>.search_content>.s_card:hover>.h_detail{
+    display: flex;
+}
+
+.main_s>.search_box>.search_content>.s_card>.h_detail{
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index:1;
+    background-color: rgba(255, 255, 255, 0.103);
+    backdrop-filter: blur(5px);
+    /* display:flex; */
+    display: none;
+    flex-direction:column;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.main_s>.search_box>.search_content>.s_card>.h_detail>p{
+    font-family: sans-serif;
+    font-size:1.1rem;
+    font-weight: bold;
+    text-align: center;
+    text-justify: inter-word;
+    overflow-y: hidden;
+    color: white;
+}
+
+.main_s>.search_box>.search_content>.s_card>.h_detail>p:nth-child(2){
+    width: fit-content;
+    padding: 1% 3%;
+    height: 10%;
+    font-size: 0.9rem;
+    background-color: rgb(92, 91, 91);
+    font-weight: bold;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:5%;
+}
+
+.main_s>.search_box>.search_content>.s_card>.h_detail>a{
+    text-decoration: none;
+    width: fit-content;
+    height: auto;
+    padding: 2% 4%;
+    cursor: pointer;
+    
+    /* border: 1px solid gray;
+    background-color: red; */
+}
+
+.main_s>.search_box>.search_content>.s_card>.h_detail>a>button{
+    font-size: 1rem;
+    margin-top: 0;
+    width:100%;
+    height: 100%;
+    cursor: pointer;
+    /* background-color: green; */
+}
+/*.main_s>.search_box>.search_content>.s_card>p{
+    width: 100%;
+    text-align: center;
+    font-family: sans-serif;
+    font-weight: 600;
+    max-height: 11%;
+    overflow-y: hidden;
+    overflow-x: hidden;
+}*/
+/*..................................................................................*/        
+nav{
+    width: 98%;
+    height: 10%;
+/*change the display property...*/
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+    justify-content: space-evenly;
+    background-color: #0b0d18;
+    color: rgb(211, 210, 210);
+    border-radius: 4px;
+    /* border: 1px solid white; */
+}
+nav>.logo{
+    height:100%;
+    width:20%;
+    display: flex;
+    align-items: center;
+    /* border: 1px solid white ; */
+}
+nav>.logo>img{
+    width: 22%;
+    height: auto;
+}
+nav>.logo>.name{
+    width: 60%;
+    height: 100%;
+    font-size: 1.7rem;
+    font-family: sans-serif;
+    display: flex;
+    align-items: center;
+    padding-left: 0.5%;
+    cursor: pointer;
+    margin-left: 2%;
+    /* border: 1px solid white ; */
+}
+nav>ul{
+    width: 30%;
+    height: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    list-style: none;
+}
+nav>ul>a{
+    color: inherit;
+    text-decoration: none;
+}
+nav>ul>li{
+    cursor: pointer;
+}
+nav>.search{
+    cursor: pointer;
+    width: 25%;
+    height: 55%;
+    border-radius: 40px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    font-size: 1.3rem;
+    font-family: sans-serif;
+    padding-left: 1%;
+    font-weight: bold;
+    background-color: #2a3036;
+    /*#15191e*/
+}
+nav>.search>i{
+    position: absolute;
+    right: 3%;
+    font-size: 2rem;
+    font-weight:500;
+}
+nav>.u_name{
+    width:15%;
+    /* width: fit-content; */
+    /* width: auto; */
+    height: 60%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    /* position: relative; */
+    /* border: 1px solid white; */
+}
+nav>.u_name>a{
+    color: inherit;
+    text-decoration: none;
+    /* margin: 0 20%; */
+}
+nav>.u_name>a>p{
+    font-size: 1.2rem;
+    font-family: sans-serif;
+    /* border: 1px solid white; */
+}
+nav>.u_name>i{
+    right: 7%;
+    font-size: 1.4rem;
+}
+nav>.lout{
+    margin-right: 1%;
+    font-size: 1.2rem;
+    cursor: pointer;
+    /* border: 1px solid white ; */
+    padding: 2px 1.5%;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: rgb(236, 194, 53);
+    color: rgb(31, 30, 30);
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
