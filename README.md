@@ -28,6 +28,6 @@ npm start
 
 > note
 ```
-currently, this app is in its dev stage so feel free to contribute some features and share your feedback 
-regarding issues/bugs in this app.
+currently, this app is in its dev stage so feel free to contribute some features and 
+share your feedback regarding issues/bugs in this app.
 ```
