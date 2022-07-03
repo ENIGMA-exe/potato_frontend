@@ -1,7 +1,9 @@
 # Potato Frontend
 
-![alt text](https://github.com/ENIGMA-exe/potato_backend/blob/main/Screenshot%20(40).png?raw=true)
-![alt text](https://github.com/ENIGMA-exe/potato_backend/blob/main/Screenshot%20(39).png?raw=true)
+<div align="center">
+ <img height="400px" src='https://github.com/ENIGMA-exe/potato_frontend/blob/main/images/Potato%20Banner%201.jpeg' alt="no image"></img>
+ <img height="400px" src='https://github.com/ENIGMA-exe/potato_frontend/blob/main/images/Potato%20Banner%203.jpeg' alt="no image"></img>
+</div>
 
 ### How to get started
 
