@@ -15,7 +15,7 @@ footer>ul{
     height: 80%;
     list-style-type: none;
 }
-footer>ul>li{
+footer>ul>li,footer>ul>li>a{
     display: flex;
     font-size: 1.2rem;
     font-family: sans-serif;
@@ -24,13 +24,17 @@ footer>ul>li{
     margin-top: 10%;
     color: white;
     cursor: pointer;
+    text-decoration: none;
 }
 footer>ul>li:nth-child(1){
     justify-content: center;
     color: rgb(233, 227, 227);
     border-bottom: 1px solid white;
 }
-footer>ul>li>i{
+footer>ul>li>a{
+    margin-top: 0;
+}
+footer>ul>li>i,footer>ul>li>a>i{
     font-size: 1.6rem;
     margin-right:10px;
 }
