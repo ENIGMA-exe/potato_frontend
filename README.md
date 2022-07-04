@@ -1,7 +1,9 @@
 # Potato Frontend
 
-![alt text](https://github.com/ENIGMA-exe/potato_backend/blob/main/Screenshot%20(40).png?raw=true)
-![alt text](https://github.com/ENIGMA-exe/potato_backend/blob/main/Screenshot%20(39).png?raw=true)
+<div align="center">
+ <img height="300px" src='https://github.com/ENIGMA-exe/potato_frontend/blob/main/images/Potato%20Banner%201.jpeg' alt="no image"></img>
+ <img height="300px" src='https://github.com/ENIGMA-exe/potato_frontend/blob/main/images/Potato%20Banner%203.jpeg' alt="no image"></img>
+</div>
 
 ### How to get started
 
@@ -29,5 +31,5 @@ npm start
 > note
 ```
 currently, this app is in its dev stage so feel free to contribute some features and 
-share your feedback regarding issues/bugs in this app.
+share your feedback regarding any issues/bugs.
 ```
