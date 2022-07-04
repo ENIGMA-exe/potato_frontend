@@ -97,7 +97,7 @@ var LoginForm = (props) => {
             if(SignUpData.pwd === pass_2.pwd2){
                 if(SignUpData.pwd.length > 5){
                     try {
-                        var response = await axios.post('http://localhost:3135/user_details',SignUpData);
+                        var response = await axios.post(process.env.REACT_APP_US_API,SignUpData);
                         if(response.data === "EAE"){
                             swal({
                             title: 'Email Already Exist!',
