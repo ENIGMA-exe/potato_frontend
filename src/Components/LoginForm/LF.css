@@ -106,12 +106,15 @@
     font-family: sans-serif;
     font-size: 2rem;
     font-weight: bold;
-        margin-top: 10%;
-        margin-bottom: 6%;
+    margin-top: 6%;
+    margin-bottom: 5%;
+}
+.signup>.fillup{
+    height: 10%;
 }
 .signup>button{
     width: 30%;
-    height: 8%;
+    height: 10%;
     border: none;
     border-radius: 40px;
     font-size: 1.2rem;

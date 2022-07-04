@@ -134,8 +134,6 @@ var LoginForm = (props) => {
     var Login = async ()=>{
         if(LoginData.email !== '' & LoginData.pass!== ''){
 
-            
-
             axios.post(process.env.REACT_APP_UL_API,LoginData)
             .then(res=>{
                 if(res.data === "UNF"){

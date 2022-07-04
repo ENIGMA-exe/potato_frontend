@@ -1,6 +1,6 @@
 import React ,{memo, useRef, useState} from 'react'
 import $ from 'jquery';
-import { Link } from 'react-router-dom';
+import { NavLink, Link, } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import  axios  from 'axios';
@@ -51,8 +51,6 @@ var NavBar = () => {
 //...............searching function.....................
     var input_ref = useRef(null)
     var [searchData,setSearchData] = useState(undefined)
-
-    //console.log("navbar",searchData)
     
     var handleSearch = debouncing(async ()=>{
         //console.log(`${process.env.REACT_APP_SER_API}${input_ref.current.value}`)
@@ -61,14 +59,11 @@ var NavBar = () => {
             var result = await axios.get(`${process.env.REACT_APP_SER_API}${input_ref.current.value}`)
 
             if(result.data === 'NDF'){
-                console.log('no data found')
+                //console.log('no data found')
                 setSearchData(undefined)
             }else{
                 setSearchData(result.data)
             }
-            
-            // console.log(input_ref.current.value);
-            // console.log(result.data)
         }else{
             setSearchData(undefined)
         }
@@ -156,27 +151,6 @@ var NavBar = () => {
                                 })
                             
                         }
-
-                        {/* <div className="s_card">
-                            <img src='https://drive.google.com/uc?id=1LfhaUOesZyqWPNItBUZNyNijHRmCdPVr' alt="no img" />
-                        </div>
-
-                        <div className="s_card">
-                            <img src='https://drive.google.com/uc?id=1msjBN6ndkl_v6lK97h9_yJgh5t0YETDW' alt="no img" className="card_img" />
-                        </div>
-                        <div className="s_card">
-                            <img src='https://drive.google.com/uc?id=1woWSz6ikjhgCCQ9A4oDWA1B8O3-50eXT' alt="no img" className="card_img" />
-                        </div>
-                        <div className="s_card">
-                            <img src='https://drive.google.com/uc?id=1k6xjJJNMH7DAr22Cx8q6maH2_qszB67C' alt="no img" className="card_img" />
-                        </div>
-                        <div className="s_card">
-                            <img src='https://drive.google.com/uc?id=1Sgb6uJoJFCe54NRPLmnVNielu5G7R3LK' alt="no img" className="card_img" />
-                        </div>
-                        <div className="s_card">
-                            <img src='https://drive.google.com/uc?id=1Aocf4FQLefR1rSC-C7N3p33ZbKLqLeQW' alt="no img" className="card_img" />
-                        </div> */}
-
                     </div>
                 </div>
             </div>
@@ -191,9 +165,9 @@ var NavBar = () => {
                 {/* <!-- <div className="name">big potato</div> --> */}
                 <ul>
                     
-                    <Link to={"/home"}><li>Home</li></Link>
-                    <Link to={"/genres?type=series&genres=horror"}><li>Genres</li></Link>
-                    <Link to={"/aboutus"}><li>About</li></Link>
+                    <NavLink to={"/home"}><li>Home</li></NavLink>
+                    <NavLink to={"/genres?type=series&genres=horror"}><li>Genres</li></NavLink>
+                    <NavLink to={"/aboutus"}><li>About</li></NavLink>
                     
                 </ul>
                 <div className="search" onClick={SerBox}>

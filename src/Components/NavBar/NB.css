@@ -139,9 +139,6 @@
     height: auto;
     padding: 2% 4%;
     cursor: pointer;
-    
-    /* border: 1px solid gray;
-    background-color: red; */
 }
 
 .main_s>.search_box>.search_content>.s_card>.h_detail>a>button{
@@ -150,17 +147,8 @@
     width:100%;
     height: 100%;
     cursor: pointer;
-    /* background-color: green; */
 }
-/*.main_s>.search_box>.search_content>.s_card>p{
-    width: 100%;
-    text-align: center;
-    font-family: sans-serif;
-    font-weight: 600;
-    max-height: 11%;
-    overflow-y: hidden;
-    overflow-x: hidden;
-}*/
+
 /*..................................................................................*/        
 nav{
     width: 98%;
@@ -212,6 +200,14 @@ nav>ul{
 nav>ul>a{
     color: inherit;
     text-decoration: none;
+}
+nav>ul>.active{
+    background-color: rgb(236, 194, 53);
+    /* border: 1px solid rgb(211, 210, 210); */
+    color: rgb(31, 30, 30);
+    border-radius: 10px;
+    padding: 2% 2%;
+    font-weight: bold;
 }
 nav>ul>li{
     cursor: pointer;

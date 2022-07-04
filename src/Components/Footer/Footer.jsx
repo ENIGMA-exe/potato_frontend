@@ -15,9 +15,9 @@ var Footer = () => {
                 </ul>
                 <ul>
                     <li>Project</li>
-                    <li><a href={'https://github.com/ENIGMA-exe/potato_frontend'} target="_blank"><i className="fab fa-github"></i>Github repo.</a></li>
+                    <li><a href={'https://github.com/ENIGMA-exe/potato_frontend'} target="_blank" rel="noreferrer" ><i className="fab fa-github"></i>Github repo.</a></li>
                     <li><i className="fab fa-uncharted"></i>Old version</li>
-                    <li><a href={'https://github.com/ENIGMA-exe/potato_backend'} target='_blank'><i className="fas fa-code"></i>Api Service</a></li>
+                    <li><a href={'https://github.com/ENIGMA-exe/potato_backend'} target='_blank' rel="noreferrer" ><i className="fas fa-code"></i>Api Service</a></li>
                 </ul>
                 <ul>
                     <li>support</li>
