@@ -175,7 +175,8 @@ const Genres = () => {
                         <Link to={`/genres?type=${query.get("type")}&genres=romantic`}>
                             <li>Romantic</li>
                         </Link>
-                        <Link to={`/genres?type=${query.get("type")}&genres=action`}>
+
+                        {/* <Link to={`/genres?type=${query.get("type")}&genres=action`}>
                             <li>Action</li>
                         </Link>
                         <Link to={`/genres?type=${query.get("type")}&genres=adventure`}>
@@ -189,7 +190,7 @@ const Genres = () => {
                         </Link>
                         <Link to={`/genres?type=${query.get("type")}&genres=mystery`}>
                             <li>Mystery</li>
-                        </Link>
+                        </Link> */}
                     </ul>
                 </div>
 
