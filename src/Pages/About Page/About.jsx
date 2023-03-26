@@ -37,7 +37,7 @@ const AboutUs = () => {
             <div className="abmain_1">
                 <div className="para_1">
                     <p className="heading">
-                        The Potato family and its product.
+                        The CineScope family and its product.
                     </p>
                     <p className="paragraph">
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.

@@ -93,16 +93,6 @@ var NavBar = () => {
                             (searchData === undefined)&&<img src={img} id='sc_img' alt=''/>
                         }
 
-                        {/* <div className="s_card" key={'one'}>
-                            <div className="h_detail">
-                                <p>Temp data</p>
-                                <p>{`IMDB - 9.1 / 10`}</p>
-                                <Link to={`none`}>
-                                    <button>Watch now</button>
-                                </Link>
-                            </div>
-                            <img src={`https://drive.google.com/uc?id=1LfhaUOesZyqWPNItBUZNyNijHRmCdPVr`} alt="no img" className="card_img" />
-                        </div> */}
 
                         {
                             (searchData !== undefined)&&
@@ -160,7 +150,7 @@ var NavBar = () => {
             <nav>
                 <div className="logo">
                     <img src={logo} alt=""/>
-                    <div className ="name">Potato</div>
+                    <div className ="name">CineScope</div>
                 </div>
                 {/* <!-- <div className="name">big potato</div> --> */}
                 <ul>

@@ -63,7 +63,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    font-family: sans-serif;
 }
+/* .homeheader>.Leftsection>h1> span{
+    font-family: sans-serif;
+} */
 .homeheader>.Leftsection>p{
     text-align: justify;
     font-size: 1.6rem;

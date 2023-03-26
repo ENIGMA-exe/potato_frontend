@@ -66,7 +66,7 @@ const Login = () => {
             <div className='homeheader'>
 
                 <div className="Leftsection">
-                    <h1>Welcome To Our Potato Family</h1>
+                    <h1>Welcome To  CineScoPE</h1>
                     <p>
                         Lorem ipsum dolor sit amet consectetur adipisicing elit.
                         Id quas voluptates quos voluptatem odit facilis, recusandae
