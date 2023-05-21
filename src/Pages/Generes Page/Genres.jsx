@@ -21,10 +21,10 @@ function debouncing(call, d) {
         const context = this
         if (timer) clearTimeout(timer);
         timer = setTimeout(() => {
-            //call()
+            
             timer = null;
             call.apply(context, args)
-            //call()
+            
         }, d);
     }
 }
@@ -37,8 +37,8 @@ const Genres = () => {
     var DB_record = useSelector(state => state.DBrecord);
     var movies_data = useSelector(state => state.MV_Operation);
     var series_fatchable = useSelector(state => state.Series_dynamic_fatching)
-
     var userState = useSelector(state => state.Authentication)
+
     var history = useHistory()
     var dispatch = useDispatch()
 
@@ -50,7 +50,7 @@ const Genres = () => {
         jsCookie.set("potato_series_skip", JSON.stringify({horror: 12,comedi: 12,romantic: 12}))
         jsCookie.set("potato_movies_skip", JSON.stringify({horror: 12,comedi: 12,romantic: 12}))
     }
-    //skip for series nd mocvies
+    //skip for series nd movies if the data is already their in the cookies or else it will add.
     if (!jsCookie.get("potato_series_skip")){ 
 
         jsCookie.set("potato_series_skip", JSON.stringify({
@@ -93,7 +93,11 @@ const Genres = () => {
             } catch (e) {
                 console.log('error in dynamic data fetching series', e)
             }
-        }else{
+            
+        }else{ 
+                // Note:- movies dynamic data fetching is not add properly .... 
+                // movies_fatchble[jsCookiec.get("potato_movies_skip")] & cookies.get("type") === "movies"
+
             try {
                 cookies_data = JSON.parse(jsCookie.get("potato_movies_skip"))
 
@@ -120,7 +124,7 @@ const Genres = () => {
     }, 300)
 
     useEffect(() => {
-        document.title = "Get More"
+        document.title = "Get More "+query.get("type")
 
         //CHEKING USER AUTH
         if (!userState.isLogin) {
@@ -151,16 +155,18 @@ const Genres = () => {
     return (
         <>
             <NavBar />
+            
             <div className="typography">
                 {query.get("type")}
             </div>
+
             <div className="genmain">
 
                 <div className="geners" onClick={goTop}>
                     <ul>
                         <li>
                             <Link to={`/genres?type=movie&genres=${query.get("genres")}`}>
-                                <div>Movie</div>
+                                <div>Movies</div>
                             </Link>
                             <Link to={`/genres?type=series&genres=${query.get("genres")}`}>
                                 <div>Anime Series</div>
@@ -176,21 +182,6 @@ const Genres = () => {
                             <li>Romantic</li>
                         </Link>
 
-                        {/* <Link to={`/genres?type=${query.get("type")}&genres=action`}>
-                            <li>Action</li>
-                        </Link>
-                        <Link to={`/genres?type=${query.get("type")}&genres=adventure`}>
-                            <li>Adventure</li>
-                        </Link>
-                        <Link to={`/genres?type=${query.get("type")}&genres=drama`}>
-                            <li>Drama</li>
-                        </Link>
-                        <Link to={`/genres?type=${query.get("type")}&genres=magic`}>
-                            <li>Magic</li>
-                        </Link>
-                        <Link to={`/genres?type=${query.get("type")}&genres=mystery`}>
-                            <li>Mystery</li>
-                        </Link> */}
                     </ul>
                 </div>
 

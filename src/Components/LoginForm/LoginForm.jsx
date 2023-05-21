@@ -13,6 +13,40 @@ import LoginLogo from './demo.png';
 
 require('dotenv').config();
 
+//validEmail cheking
+function validateEmail(email_id) {
+    const regex_pattern = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    
+    if (regex_pattern.test(email_id)) return true
+    return false
+}
+
+//strong Password Checking
+function isStrongPassword (password){
+
+    var Obj = {maxfive:false,capitalLetter:false,smallLetter:false,alphaNumeric:false,sign:false}
+
+    if(password.length>5){
+        Obj.maxfive = true
+
+        for(var i=0; i<password.length; i++){
+            var ASCII = password.charCodeAt(i)
+
+            if((ASCII<=47 && ASCII>=33) || (ASCII<=64 && ASCII >=58) || (ASCII>=91 && ASCII<=96) || (ASCII>=123 && ASCII<=126)) Obj.sign = true
+            if(ASCII>=65 && ASCII<=90) Obj.capitalLetter = true
+            if(ASCII>=97 && ASCII<=122) Obj.smallLetter = true
+            if(ASCII>=48 && ASCII<=57) Obj.alphaNumeric = true
+        }
+    }else return false
+
+    for( var key in Obj){
+        if(!Obj[key]) return false
+    }
+
+    return true
+    
+}
+
 var LoginForm = (props) => {
 
     var dispatch = useDispatch();
@@ -20,6 +54,9 @@ var LoginForm = (props) => {
 
     let history = useHistory();
     var [inputType,setInputType] = useState("password")
+
+    var [disabled,setDisabled] = useState({login:false,signup:false})
+
     var handleInputType = ()=>{
         if(inputType === 'password'){
             setInputType("text")
@@ -42,13 +79,9 @@ var LoginForm = (props) => {
 
         //console.log("login form component")
         
-    },[loginState,history])
+    },[loginState,history,disabled])
 
     //.............states.............................
-
-    
-    
-    //console.log("lform "+myState)
 
     var [SignUpData, setSignUpData] = useState({
         fname:'',
@@ -89,60 +122,104 @@ var LoginForm = (props) => {
         if(e.target.name === 'userid'){setLoginData({...LoginData,'email':e.target.value})}
         if(e.target.name === 'pass'){setLoginData({...LoginData,'pwd':e.target.value})}
     }
+    //.............function for making button disabled......................
 
+    const ToggleDisable = (type)=>{
+        
+        setDisabled((prevState)=>{
+            return {
+                ...prevState,
+                [type]:!prevState[type]
+            }
+        })
+        // console.log("toggle",disabled.login)
+    }
     //..............functions for signup and login.........................
     var Signup = async ()=>{
+        ToggleDisable("signup")
 
         if(SignUpData.name !== "" & SignUpData.email !== "" & SignUpData.pwd !== ""){
-            if(SignUpData.pwd === pass_2.pwd2){
-                if(SignUpData.pwd.length > 5){
-                    try {
-                        var response = await axios.post(process.env.REACT_APP_US_API,SignUpData);
-                        if(response.data === "EAE"){
-                            swal({
-                            title: 'Email Already Exist!',
-                            icon: "error"
-                        })}else{
-                            swal({
-                                title: response.data,
-                                icon: "success"
-                            })
-                            RightSlider();
-                            
-                            document.querySelectorAll('.signup_input').forEach(elm=> {
-                                elm.value = ""
-                            })
-                            
-                        }
-                        
-                    } catch (e) {
-                        
-                        swal({
-                            title:"Error in SignUp",
-                            icon:"error"
-                        })
-                    }
 
-                    console.log(SignUpData);
-                    
-                    
-                }else{swal({title: "password length is too short!",icon: "warning"});}
-            }else{swal({title: "passwords are not matching",icon: "warning"});}
-        }else{swal({title: "Incomplite fillup",icon: "warning"});}
+            // email checking
+            if(validateEmail(SignUpData.email)){
+                if(SignUpData.pwd === pass_2.pwd2){
+                    if(isStrongPassword(SignUpData.pwd)){
+                        try {
+                            var response = await axios.post(process.env.REACT_APP_US_API,SignUpData);
+                            if(response.data === "EAE"){
+                                swal({
+                                    title: 'Email Already Exist!',
+                                    icon: "error"
+                                }).then((isconfirm)=>{ToggleDisable("signup")})
+                            }else{
+                                swal({
+                                    title: response.data,
+                                    icon: "success"
+                                }).then((isconfirm)=>{
+                                    ToggleDisable("signup")
+                                    RightSlider();
+                                })
+                                // RightSlider();
+                                
+                                document.querySelectorAll('.signup_input').forEach(elm=> {
+                                    elm.value = ""
+                                })
+                                
+                            }
+                            
+                        } catch (e) {
+                            
+                            swal({
+                                title:"Error in SignUp",
+                                icon:"error"
+                            }).then((isconfirm)=>{
+                                ToggleDisable("signup")
+                            })
+                        }
+
+                        console.log(SignUpData);
+                        
+                        
+                    }else{
+                        swal({
+                            title: "Weak password!",
+                            text:"Password must be of 5 character, having Caital Letter, Small Letter, Number and Alpha neumeric Sign",
+                            icon: "warning"
+                        }).then((isconfirm)=>{
+                            ToggleDisable("signup")
+                        });
+                    }
+                }else{swal({title: "passwords are not matching",icon: "warning"}).then((isconfirm)=>{ToggleDisable("signup")});}
+            }else{
+                swal({title:"Invalid Email",icon:"warning"}).then((isconfirm)=>{ToggleDisable("signup")})
+            }
+
+        }else{swal({title: "Incomplite fillup",icon: "warning"}).then((isconfirm)=>{ToggleDisable("signup")});}
+
     }
 
     var Login = async ()=>{
+        ToggleDisable("login")
+
         if(LoginData.email !== '' & LoginData.pass!== ''){
 
             axios.post(process.env.REACT_APP_UL_API,LoginData)
             .then(res=>{
                 if(res.data === "UNF"){
+
+                    // ToggleDisable("login")
+
                     swal({
                         title: "User not Found",
                         icon: "error"
+                    }).then((isconfirm)=>{
+                        console.log(isconfirm)
+                        if(isconfirm) ToggleDisable("login")
                     });
+                    
                 }else{
                     dispatch(ULogin(res.data));
+                    ToggleDisable("login")
                     history.push("/home")
                 }
 
@@ -154,13 +231,19 @@ var LoginForm = (props) => {
                 swal({
                     title: "some errror in login",
                     icon: "error"
+                }).then((isconfirm)=>{
+                    if(isconfirm)  ToggleDisable("login")
                 });
+               
             })
         }else{
             swal({
                 title: "Incomplite fillup",
                 icon: "warning"
+            }).then((isconfirm)=>{
+                if(isconfirm) ToggleDisable("login")
             });
+            
         }
 
         //console.log(LoginData);
@@ -185,7 +268,14 @@ var LoginForm = (props) => {
                         <i className="fas fa-eye" id="eye" onClick={handleInputType}></i>
                     </div>
 
-                    <button onClick={Login}>Login</button>
+                    <button onClick={Login} disabled={disabled.login}>
+                        {
+                            (!disabled.login)?
+                            "Login":
+                            <i className="fa fa-spinner fa-spin"/>
+                        }
+                    </button>
+
                     <p id="signup">don't have an account?<span id="click_1" onClick={LeftSlider}>create</span> </p>
                     <p id="fo_p">Forget password</p>
                 </div>
@@ -210,15 +300,22 @@ var LoginForm = (props) => {
 
                     <div className="fillup">
                         <i className="fas fa-lock"></i>
-                        <input className='signup_input' onChange={signupFillup} value={SignUpData.pass} id="user_pass" name="user_pass" autoComplete="off" type="password" placeholder="password" />
+                        <input className='signup_input' onChange={signupFillup} value={SignUpData.pass} id="user_pass" name="user_pass" autoComplete="off" type="password" placeholder="password" maxLength = "10"/>
                     </div>
 
                     <div className="fillup">
                         <i className="fas fa-lock"></i>
-                        <input className='signup_input' onChange={signupFillup} value={SignUpData.pass2} id="user_pass_2" name="user_pass_2" autoComplete="off" type="password" placeholder="password(re type)" />
+                        <input className='signup_input' onChange={signupFillup} value={SignUpData.pass2} id="user_pass_2" name="user_pass_2" autoComplete="off" type="password" placeholder="password(re type)" maxLength = "10"/>
                     </div>
 
-                    <button onClick={Signup}>Register</button>
+                    <button onClick={Signup} disabled={disabled.signup}>
+                        {
+                            (!disabled.signup)?
+                            "SignUp":
+                            <i className="fa fa-spinner fa-spin"/>
+                        }
+                    </button>
+
                     <p id="login">Already have an account.<span id="click_2" onClick={RightSlider}>login</span> </p>
                 </div>
                 {/* <!-- ................................................................................................--> */}
@@ -237,6 +334,7 @@ var LoginForm = (props) => {
         </>
     )
 };
+
 
 export default memo(LoginForm);
 

@@ -1,17 +1,14 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-// import { useDispatch, useSelector } from 'react-redux';
-// import { Mdata_Fetch, Sdata_Fetch } from '../../Action/action';
+import Loader from '../Loader/Loader';
 
 import './SCS.css';
 
 
 
 
-var SimpleCardSlider = (props) => {
 
-    // useEffect(()=>{
-    // },[])
+var SimpleCardSlider = (props) => {
 
     var goUP = ()=>{
         window.scrollTo(0,0);
@@ -43,10 +40,15 @@ var SimpleCardSlider = (props) => {
                                                 <button onClick={() => goUP()}>Watch now</button>
                                             </Link>
                                         </div>
-                                        <img src={`https://drive.google.com/uc?id=${item.banner_URL}`} alt="no img" className="card_img" />
+                                        <img 
+                                        src={`https://drive.google.com/uc?id=${item.banner_URL}`} 
+                                        alt="no img" 
+                                        className="card_img" 
+                                        loading='eager'
+                                        />
                                     </div>
                                 )
-                            }):<p>NO DATA SERIES</p>
+                            }):<Loader/>
 
                         :   !props.loader ? 
                             props.data.map((item)=>{
@@ -62,12 +64,9 @@ var SimpleCardSlider = (props) => {
                                         <img src={`https://drive.google.com/uc?id=${item.banner_URL}`} alt="no img" className="card_img" />
                                     </div>
                                 )
-                            }):<p>NO DATA MOVIES</p>
+                            }):<Loader/>
                     }
 
-                    {/* <div className="card_more">
-                        <button>More..</button>
-                    </div> */}
                 </div>
             </div>
         </>

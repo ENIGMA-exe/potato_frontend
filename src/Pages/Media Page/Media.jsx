@@ -1,4 +1,5 @@
 import React, { useEffect,useState } from 'react'
+import jsCookie from 'js-cookie';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import { useLocation, useHistory } from 'react-router-dom';
@@ -20,11 +21,14 @@ var Media = () => {
     var series_data = useSelector(state => state.SD_Operation);
     var movies_data = useSelector(state => state.MV_Operation);
 
-    var history = useHistory()
-    var dispatch = useDispatch()
+    console.log("series data",series_data)
+    console.log("movies data",movies_data)
 
-    //get query data
-    var query = new URLSearchParams(useLocation().search)
+    const history = useHistory()
+    const dispatch = useDispatch()
+
+    //get query data from url
+    const query = new URLSearchParams(useLocation().search)
 
     //updating base-url-key for mediaplayer
     var [urlKey, setUrlKey] = useState("")
@@ -37,27 +41,37 @@ var Media = () => {
         isSet:false
     })
 
-    if(query.get('type') === 'series' && !episode.isSet &&  Object.keys(series_data).length !== 0 && series_data !== {}){
-        var [result_series] = series_data[query.get('genres')].filter((itm) => { return itm.series_id === query.get("id") })
+    // if(query.get('type') === 'series' && !episode.isSet &&  Object.keys(series_data).length !== 0 && series_data !== {}){
+
+    //     var [result_series] = series_data[query.get('genres')].filter((itm) => { return itm.series_id === query.get("id") })
+
+    //     //check rersult_series,undefined or not
+    //     //debugging
+    //     console.log("media page,if condition 1, series", result_series)
         
-        setEpisode({
-            seriesID:result_series.series_id,
-            name:result_series.episodes[0].episode_name,
-            no:1,
-            isSet:true
-        })
-        setUrlKey(result_series.episodes[0].episode_URL)
-    }else if(episode.seriesID !== query.get("id") && Object.keys(series_data).length !== 0 && series_data !== {} && query.get('type') === 'series'){
-         [result_series] = series_data[query.get('genres')].filter((itm) => { return itm.series_id === query.get("id") })
+    //     setEpisode({
+    //         seriesID:result_series.series_id,
+    //         name:result_series.episodes[Number(query.get("ep"))-1].episode_name,
+    //         no:query.get("ep"),
+    //         isSet:true
+    //     })
+    //     setUrlKey(result_series.episodes[Number(query.get("ep"))-1].episode_URL)
+
+    // }else if(episode.seriesID !== query.get("id") && Object.keys(series_data).length !== 0 && series_data !== {} && query.get('type') === 'series'){
+    //     var [result_series] = series_data[query.get('genres')].filter((itm) => { return itm.series_id === query.get("id") })
         
-        setEpisode({
-            seriesID:result_series.series_id,
-            name:result_series.episodes[0].episode_name,
-            no:1,
-            isSet:true
-        })
-        setUrlKey(result_series.episodes[0].episode_URL)
-    }
+    //     //check rersult_series,undefined or not
+    //     //debugging
+    //     console.log("media page,if condition 2, series", result_series)
+
+    //     setEpisode({
+    //         seriesID:result_series.series_id,
+    //         name:result_series.episodes[Number(query.get("ep"))-1].episode_name,
+    //         no:query.get("ep"),
+    //         isSet:true
+    //     })
+    //     setUrlKey(result_series.episodes[Number(query.get("ep"))-1].episode_URL)
+    // }
 
     //Suggest movies name for video (while movies)
     var [movie,setMovie] = useState({
@@ -66,32 +80,39 @@ var Media = () => {
         isSet: false
     })
 
-    if(query.get('type') === 'movie' && !movie.isSet && Object.keys(movies_data).length !== 0 && movies_data !== {} && movies_data[query.get("genres")] !== undefined){
-        var [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
+    // if(query.get('type') === 'movie' && !movie.isSet && Object.keys(movies_data).length !== 0 && movies_data !== {} && movies_data[query.get("genres")] !== undefined){
+    //     var [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
+        
+    //     //check rersult_movie
+    //     //debugging
+    //     console.log("media page,if condition , movies 1", result_movie)
 
-        console.log("seting up movies 1",result_movie)
+    //     setMovie({
+    //         movieID:result_movie.movie_id,
+    //         name:result_movie.name,
+    //         isSet:true
+    //     })
+    //     setUrlKey(result_movie.movie_URL)
 
-        setMovie({
-            movieID:result_movie.movie_id,
-            name:result_movie.name,
-            isSet:true
-        })
-        setUrlKey(result_movie.movie_URL)
-    }else if(movie.movieID !== query.get("id") && Object.keys(movies_data).length !== 0 && movies_data !== {} && query.get('type') === 'movie'){
-         [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
+    // }else if(movie.movieID !== query.get("id") && Object.keys(movies_data).length !== 0 && movies_data !== {} && query.get('type') === 'movie'){
+    //     [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
 
-        console.log("seting up movies 2",result_movie)
-        setMovie({
-            movieID:result_movie.movie_id,
-            name:result_movie.name,
-            isSet:true
-        })
-        setUrlKey(result_movie.movie_URL)
+    //     //debuggng
+    //     console.log("media page,if condition , movies 2", result_movie)
 
-    }
+    //     setMovie({
+    //         movieID:result_movie.movie_id,
+    //         name:result_movie.name,
+    //         isSet:true
+    //     })
+    //     setUrlKey(result_movie.movie_URL)
+
+    // }
 
     useEffect(() => {
         document.title = "Media page"
+
+        //check login
         if (!userState.isLogin) {
             history.push('/')
         }
@@ -106,7 +127,86 @@ var Media = () => {
             dispatch(Mdata_Fetch());
         }
 
-    },)
+        //set series episode
+        //while refreshing
+        if(query.get('type') === 'series' && !episode.isSet &&  Object.keys(series_data).length !== 0 && series_data !== {}){
+
+            var limit = query.get("id").split("_")[1]
+            var skip = Math.ceil(Number(limit)/12)*12
+
+            if(limit>12) dispatch(Sdata_Fetch(skip.toString()))
+
+            //set cookies , for skip method
+            var cookie_data = JSON.parse(jsCookie.get("potato_series_skip"))
+            cookie_data = {...cookie_data,[query.get("genres")]:skip}
+
+            jsCookie.set("potato_series_skip",JSON.stringify(cookie_data))
+
+            //console.log("cookies data media page",cookie_data)
+
+
+            var [result_series] = series_data[query.get('genres')].filter((itm) => { return itm.series_id === query.get("id") })
+
+            //check rersult_series,undefined or not
+            //debugging
+            console.log("media page,if condition 1, series", result_series)
+            
+            setEpisode({
+                seriesID:result_series.series_id,
+                name:result_series.episodes[Number(query.get("ep"))-1].episode_name,
+                no:query.get("ep"),
+                isSet:true
+            })
+            setUrlKey(result_series.episodes[Number(query.get("ep"))-1].episode_URL)
+
+        //while clicking different series from the slider
+        }else if(episode.seriesID !== query.get("id") && Object.keys(series_data).length !== 0 && series_data !== {} && query.get('type') === 'series'){
+
+            var [result_series] = series_data[query.get('genres')].filter((itm) => { return itm.series_id === query.get("id") })
+            
+            //check rersult_series,undefined or not
+            //debugging
+            console.log("media page,if condition 2, series", result_series)
+
+            setEpisode({
+                seriesID:result_series.series_id,
+                name:result_series.episodes[Number(query.get("ep"))-1].episode_name,
+                no:query.get("ep"),
+                isSet:true
+            })
+            setUrlKey(result_series.episodes[Number(query.get("ep"))-1].episode_URL)
+        }
+
+        //set movies
+        if(query.get('type') === 'movie' && !movie.isSet && Object.keys(movies_data).length !== 0 && movies_data !== {} && movies_data[query.get("genres")] !== undefined){
+            var [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
+            
+            //debugging
+            console.log("media page,if condition , movies 1", result_movie)
+
+            setMovie({
+                movieID:result_movie.movie_id,
+                name:result_movie.name,
+                isSet:true
+            })
+            setUrlKey(result_movie.movie_URL)
+
+        }else if(movie.movieID !== query.get("id") && Object.keys(movies_data).length !== 0 && movies_data !== {} && query.get('type') === 'movie'){
+            [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
+
+            //debuggng
+            console.log("media page,if condition , movies 2", result_movie)
+
+            setMovie({
+                movieID:result_movie.movie_id,
+                name:result_movie.name,
+                isSet:true
+            })
+            setUrlKey(result_movie.movie_URL)
+
+        }
+
+    },[series_data,movies_data,episode,movie,dispatch])
 
     
     var mediaSet = (data,type)=>{
@@ -131,6 +231,7 @@ var Media = () => {
     return (
         <>
             <NavBar />
+
             <div className="main_1">
                 <div className="media">
                     <div className="video">
@@ -160,10 +261,11 @@ var Media = () => {
                                 series_data[query.get("genres")]
                                     .filter((itm) => { return itm.series_id === query.get("id") })
                                     .map((data) => {
+                                        
                                         return (
                                             data.episodes.map((episode) => {
                                                 return (
-                                                    <Link to={`/media?base_url=${episode.episode_URL}&type=series&id=${data.series_id}&genres=${query.get("genres")}&ep=${episode.episode_no}`} key={episode.episode_no}>
+                                                    <Link to={`/media?base_url=${episode.episode_URL}&type=series&id=${data.series_id}&genres=${query.get("genres")}&ep=${episode.episode_no}`} key={episode.episode_no + episode.episode_name + data.name}>
                                                         <div className="episode" onClick={()=> mediaSet(episode,"series")}>
                                                             <div className="ep_img">
                                                                 <img src={`https://drive.google.com/uc?id=${data.banner_URL}`} alt="no img" className="card_img" />
@@ -185,7 +287,7 @@ var Media = () => {
                         :(Object.keys(movies_data).length !== 0 && movies_data !== {}) ?
                             movies_data[query.get("genres")].map((data) => {
                                 return (
-                                    <Link to={`/media?base_url=${data.movie_URL}&type=movie&id=${data.movie_id}&genres=${query.get("genres")}`} key={data.movie_id}>
+                                    <Link to={`/media?base_url=${data.movie_URL}&type=movie&id=${data.movie_id}&genres=${query.get("genres")}`} key={data.movie_id+data.name}>
                                         <div className="episode" onClick={()=> mediaSet(data,'movie')}>
                                             <div className="ep_img">
                                                 <img src={`https://drive.google.com/uc?id=${data.banner_URL}`} alt="no img" className="card_img" />

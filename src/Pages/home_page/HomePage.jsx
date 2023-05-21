@@ -53,6 +53,7 @@ var HomePage = () => {
         <>
             <NavBar />
             <Banner />
+
             {
                 series_data.horror !== undefined ? <SimpleCardSlider type="series" genres='horror' loader={false} data={series_data.horror}/> :<SimpleCardSlider loader={true}/>
 
