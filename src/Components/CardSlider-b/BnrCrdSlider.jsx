@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import Loader from '../Loader/Loader';
 import './BCS.css';
 
 
@@ -38,7 +39,7 @@ var BannerCardSlider = (props) => {
                                     <img src={`https://drive.google.com/uc?id=${item.banner_URL}`} alt="no img" className="card_img" />
                                 </div>
                             )
-                        }):<p>NO DATA</p>
+                        }):<Loader/>
                     }
                     {/* <div className="card_more">
                         <button>More..</button>

@@ -3,8 +3,9 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import LoginForm from '../../Components/LoginForm/LoginForm';
 import { useHistory } from 'react-router-dom';
-import './HP2.css'
+import './LandingPage.css'
 import { getDBRecord, Mdata_Fetch, Sdata_Fetch, Uauth } from '../../Action/action';
+import Loader from '../../Components/Loader/Loader'
 
 require('dotenv').config()
 
@@ -15,6 +16,8 @@ const Login = () => {
     var DB_record = useSelector(state => state.DBrecord);
     var series_data = useSelector(state => state.SD_Operation);
     var movies_data = useSelector(state => state.MV_Operation);
+
+    const [loader,setLoader] = useState(true)
 
     var dispatch = useDispatch();
     var History = useHistory()
@@ -37,6 +40,12 @@ const Login = () => {
         if(Object.keys(movies_data).length === 0 || movies_data === {}){
             dispatch(Mdata_Fetch())
         }
+
+        if(loader){
+            setTimeout(() => {
+                setLoader(false)
+            }, 2000);
+        }
         
 
         //CHEKING USER AUTH
@@ -58,7 +67,8 @@ const Login = () => {
     }
 
     return (
-        <>
+        <>  
+            {(loader)?<Loader/>:null}
             <div className='lpopup' style={PopDisplay}>
                 <LoginForm closefunction={ClosePopup} />
             </div>

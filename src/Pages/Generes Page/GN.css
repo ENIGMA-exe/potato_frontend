@@ -1,9 +1,8 @@
-body{
-    /* color: white; */
+/* body{
     background: #06070d !important;
     width: 100%;
     height: 100vh;
-}
+} */
 .typography{
     width: 98%;
     height: 7%;
@@ -153,7 +152,25 @@ body{
 .genmain>.card_sc>.g_card>.h_detail>a{
     text-decoration: none;
     width: fit-content;
-    padding: 2% 4%;
-    height: 12%;
+    padding: 5% 6%;
+    height: 13%;
     /* border: 1px sold gray; */
+}
+
+.genmain .card_sc .g_card .h_detail a, 
+.genmain .card_sc .g_card .h_detail a button{
+    /* margin-top: 8%; */
+    margin: 5% 0%;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    background-color: transparent;
+    border: 1px solid yellow ;
+    background-color: yellow;
+    color: rgb(41, 38, 38)!important;
+    font-size: 1.2rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 4px;
+    /* border: 1px solid white; */
 }

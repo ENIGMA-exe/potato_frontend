@@ -82,10 +82,12 @@
     margin-top: 5%;
     cursor: pointer;
     color: white;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     background-image: linear-gradient(to right, rgb(37, 37, 201), rgb(120, 45, 190));
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
-
 .login>#fo_p {
     font-size: 0.9rem;
     font-family: sans-serif;
@@ -120,6 +122,9 @@
     font-size: 1.2rem;
     font-weight: bold;
     margin-top: 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
     cursor: pointer;
     color: white;
     background-image: linear-gradient(to right, rgb(37, 37, 201), rgb(120, 45, 190));
@@ -135,7 +140,13 @@
     color: rgb(103, 168, 241);
     cursor: pointer;
 }
-/*..............................................*/
+/*....................Button disable..........................*/
+.login>button:disabled,.signup>button:disabled{
+    cursor: not-allowed;
+    background-image: linear-gradient(to right, rgb(145, 145, 231), rgb(200, 159, 238));
+}
+
+/* ................................................. */
 .slider{
     height: 100%;
     width: 50%;
