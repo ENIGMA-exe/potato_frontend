@@ -78,7 +78,7 @@ export const Sdata_Fetch = (limit) => {
                 console.log("@sd_op func", e);
             }
         }else{
-            console.log("action else part,sdata_fetch, limit ",limit)
+            // console.log("action else part,sdata_fetch, limit ",limit)
             try {
                 const horrorData = await axios.get(`${process.env.REACT_APP_SD_API}${gen_typ[0]}?limit=${limit}&skip=0`)
                 const comediData = await axios.get(`${process.env.REACT_APP_SD_API}${gen_typ[1]}?limit=${limit}&skip=0`)
@@ -88,7 +88,7 @@ export const Sdata_Fetch = (limit) => {
                 seriesData[gen_typ[1]] = comediData.data
                 seriesData[gen_typ[2]] = romanticData.data
 
-                console.log(seriesData)
+                // console.log(seriesData)
                 dispatch(Fill_sdata(seriesData))
                 
             } catch (e) {
@@ -134,7 +134,7 @@ export const dynamic_data_fetch = (data) => {
             if(result.data.length === 0){
                 dispatch(set_series_fatchable_false(data.genres))
             }else{
-                console.log(result.data)
+                // console.log(result.data)
                 jsCookie.set("potato_series_skip",Number(jsCookie.get("potato_skip"))+12)
             }
         }catch(e){

@@ -177,7 +177,7 @@ var LoginForm = (props) => {
                             })
                         }
 
-                        console.log(SignUpData);
+                        // console.log(SignUpData);
                         
                         
                     }else{
@@ -213,7 +213,7 @@ var LoginForm = (props) => {
                         title: "User not Found",
                         icon: "error"
                     }).then((isconfirm)=>{
-                        console.log(isconfirm)
+                        // console.log(isconfirm)
                         if(isconfirm) ToggleDisable("login")
                     });
                     

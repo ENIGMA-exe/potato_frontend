@@ -1,8 +1,10 @@
 import React, { Suspense } from 'react'
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
+import jsCookie from 'js-cookie';
 import './App.css';
 
 import Loader from './Components/Loader/Loader';
+import { useEffect } from 'react';
 
 //lazy Loading
 const LandingPage = React.lazy(()=> import('./Pages/Landing_Page/Landing_page'))
@@ -13,6 +15,22 @@ const Genres = React.lazy(()=>import('./Pages/Generes Page/Genres'))
 const AboutUs = React.lazy(()=>import('./Pages/About Page/About'))
 
 function App() {
+  useEffect(()=>{
+    if (!jsCookie.get("potato_series_skip")){ 
+
+      jsCookie.set("potato_series_skip", JSON.stringify({
+          horror: 12,
+          comedi: 12,
+          romantic: 12
+      }))
+
+      jsCookie.set("potato_movies_skip", JSON.stringify({
+          horror: 12,
+          comedi: 12,
+          romantic: 12
+      }))
+  }
+  },[])
   return (
     <Suspense fallback={<Loader/>}>
       <Router>

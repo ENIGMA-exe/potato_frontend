@@ -40,15 +40,12 @@ const AboutUs = () => {
                         The CineScope family and its product.
                     </p>
                     <p className="paragraph">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Pariatur labore odit modi praesentium architecto harum
-                        nostrum incidunt laudantium dignissimos quo animi vitae
-                        fugiat perferendis tempora temporibus cumque, culpa quos
-                        voluptates?Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Pariatur labore odit modi praesentium architecto harum
-                        nostrum incidunt laudantium dignissimos quo animi vitae
-                        fugiat perferendis tempora temporibus cumque, culpa quos
-                        voluptates?
+                    At the heart of CineScope is a deep appreciation for the artistry 
+                    and storytelling that Anime brings. The platform showcases a wide 
+                    range of genres, from action-packed shonen adventures to heartwarming 
+                    slice-of-life tales, ensuring there is something for everyone. 
+                    Whether you're a long-time Anime aficionado or a newcomer looking 
+                    to explore this vibrant world, CineScope has you covered.
                     </p>
                     <button>Something</button>
                 </div>

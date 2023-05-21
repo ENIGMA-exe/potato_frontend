@@ -76,15 +76,14 @@ const Login = () => {
             <div className='homeheader'>
 
                 <div className="Leftsection">
-                    <h1>Welcome To  CineScoPE</h1>
+                    <h1>Welcome To  CineScope</h1>
                     <p>
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Id quas voluptates quos voluptatem odit facilis, recusandae
-                        rem totam fuga placeat aspernatur dolor quibusdam eaque quae
-                        magni hic excepturi ab laborum!
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis
-                        odit fugit distinctio. Aliquid quo, hic magnam nemo eos suscipit ex
-                        sunt amet possimus, error aliquam ducimus nam cupiditate ullam temporibus.
+                    One of the standout features of CineScope is its user-friendly interface, 
+                    designed with the utmost convenience in mind. The platform's sleek and 
+                    intuitive layout allows users to effortlessly browse and discover new titles. 
+                    With advanced search options, personalized recommendations, 
+                    and curated playlists, CineScope makes it easy to find the perfect 
+                    Anime to suit your mood and interests.
                     </p>
                     <div className="inpsec">
                         <button id='btn' onClick={DisplayPopup}>sign up/ login</button>
@@ -101,10 +100,10 @@ const Login = () => {
                 <div className="upper_layer"></div>
                 <div className="para_layer">
                     <div className="para">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Perferendis, pariatur ut repudiandae atque tempora, eos consequuntur
-                        soluta minima facilis incidunt dolor nobis sed quis amet quibusdam consectetur,
-                        harum labore similique.
+                    CineScope is a cutting-edge OTT platform dedicated to delivering 
+                    the best Anime content to fans around the globe. With its vast library 
+                    of captivating and diverse animated series and movies, CineScope 
+                    offers a one-stop destination for all Anime enthusiasts.
                     </div>
                     <button>view More ....</button>
                 </div>
@@ -114,10 +113,12 @@ const Login = () => {
                 <div className="upper_layer"></div>
                 <div className="para_layer">
                     <div className="para">
-                        Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                        Perferendis, pariatur ut repudiandae atque tempora, eos consequuntur
-                        soluta minima facilis incidunt dolor nobis sed quis amet quibusdam consectetur,
-                        harum labore similique.
+                        CineScope is the ultimate destination for Anime lovers, 
+                        offering a vast selection of captivating content, user-friendly 
+                        interface, multilingual support, and an interactive community. 
+                        With CineScope, fans can embark on an unforgettable journey 
+                        through the captivating world of Anime, immersing themselves in its 
+                        rich storytelling, breathtaking animation, and vibrant characters.
                     </div>
                     <button>view More ....</button>
                 </div>

@@ -21,8 +21,8 @@ var Media = () => {
     var series_data = useSelector(state => state.SD_Operation);
     var movies_data = useSelector(state => state.MV_Operation);
 
-    console.log("series data",series_data)
-    console.log("movies data",movies_data)
+    // console.log("series data",series_data)
+    // console.log("movies data",movies_data)
 
     const history = useHistory()
     const dispatch = useDispatch()
@@ -138,6 +138,7 @@ var Media = () => {
 
             //set cookies , for skip method
             var cookie_data = JSON.parse(jsCookie.get("potato_series_skip"))
+            // console.log("media page",cookie_data)
             cookie_data = {...cookie_data,[query.get("genres")]:skip}
 
             jsCookie.set("potato_series_skip",JSON.stringify(cookie_data))
@@ -149,7 +150,7 @@ var Media = () => {
 
             //check rersult_series,undefined or not
             //debugging
-            console.log("media page,if condition 1, series", result_series)
+            // console.log("media page,if condition 1, series", result_series)
             
             setEpisode({
                 seriesID:result_series.series_id,
@@ -166,7 +167,7 @@ var Media = () => {
             
             //check rersult_series,undefined or not
             //debugging
-            console.log("media page,if condition 2, series", result_series)
+            // console.log("media page,if condition 2, series", result_series)
 
             setEpisode({
                 seriesID:result_series.series_id,
@@ -182,7 +183,7 @@ var Media = () => {
             var [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
             
             //debugging
-            console.log("media page,if condition , movies 1", result_movie)
+            // console.log("media page,if condition , movies 1", result_movie)
 
             setMovie({
                 movieID:result_movie.movie_id,
@@ -195,7 +196,7 @@ var Media = () => {
             [result_movie] = movies_data[query.get("genres")].filter((itm) => { return itm.movie_id === query.get("id") })
 
             //debuggng
-            console.log("media page,if condition , movies 2", result_movie)
+            // console.log("media page,if condition , movies 2", result_movie)
 
             setMovie({
                 movieID:result_movie.movie_id,
